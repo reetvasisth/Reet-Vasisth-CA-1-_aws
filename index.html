@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ChatGPT Images Clone</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ========== SIDEBAR ========== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sb-top">
+      <div class="brand">
+        <h2>ChatGPT</h2>
+        <button class="icon-btn" id="closeSidebar" title="Close sidebar">▥</button>
+      </div>
+      <nav class="menu">
+        <button data-action="new">✎ New chat</button>
+        <button data-action="images">🖼 Images</button>
+        <button data-action="plugins">◎ Plugins</button>
+        <button data-action="research">🔭 Deep research</button>
+        <button data-action="plans">⬡ See plans and pricing ↗</button>
+        <button data-action="help">⛑ Help ↗</button>
+        <button data-action="settings">⚙ Settings</button>
+      </nav>
+      <div class="history" id="history"></div>
+    </div>
+    <div class="sb-bottom" id="sbBottom"></div>
+  </aside>
+
+  <!-- ========== MAIN ========== -->
+  <section class="main">
+    <header class="topbar">
+      <div class="left">
+        <button class="icon-btn" id="openSidebar" hidden>▥</button>
+        <div class="dropdown">
+          <button class="model" id="modelBtn">ChatGPT ⌄</button>
+          <div class="dropdown-menu" id="modelMenu" hidden>
+            <button data-model="ChatGPT">ChatGPT <small>Great for everyday tasks</small></button>
+            <button data-model="ChatGPT Images">ChatGPT Images <small>Best for pictures</small></button>
+            <button data-model="ChatGPT Mini">ChatGPT Mini <small>Fast replies</small></button>
+          </div>
+        </div>
+      </div>
+      <div class="auth" id="auth"></div>
+    </header>
+
+    <div class="content">
+      <h1>Images</h1>
+
+      <div class="prompt-box">
+        <button class="round" id="attachBtn" title="Attach image">📎</button>
+        <input type="file" id="fileInput" accept="image/*" hidden>
+        <input type="text" id="prompt" placeholder="Describe a new image or ask a question" autocomplete="off">
+        <button class="round" id="micBtn" title="Voice input">🎤</button>
+        <button class="round send" id="sendBtn" title="Generate">↑</button>
+      </div>
+
+      <div class="attachment" id="attachment" hidden></div>
+
+      <div class="chips" id="chips">
+        <button class="chip active" data-style="">Any style</button>
+        <button class="chip" data-style="watercolor">Watercolor</button>
+        <button class="chip" data-style="cyberpunk">Cyberpunk</button>
+        <button class="chip" data-style="anime">Anime</button>
+        <button class="chip" data-style="vintage">Vintage</button>
+      </div>
+
+      <div id="chatWrap" hidden>
+        <div class="section-head">
+          <h3>Conversation</h3>
+          <button class="link-btn" id="clearChat">Clear chat</button>
+        </div>
+        <div class="chat" id="chat"></div>
+      </div>
+
+      <div id="creationsWrap" hidden>
+        <div class="section-head">
+          <h3>Your creations</h3>
+          <button class="link-btn" id="clearAll">Clear all</button>
+        </div>
+        <div class="grid" id="creations"></div>
+      </div>
+
+      <h3>Create an image</h3>
+      <div class="grid" id="templates"></div>
+    </div>
+  </section>
+
+  <!-- ========== MODALS ========== -->
+  <div class="overlay" id="overlay" hidden>
+    <div class="modal" id="modal"></div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
